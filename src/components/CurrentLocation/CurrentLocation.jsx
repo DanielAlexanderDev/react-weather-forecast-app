@@ -4,6 +4,7 @@ const CurrentLocation = ({
   name,
   country,
   localTime,
+  localDate,
   condition,
   temperature,
 }) => {
@@ -12,6 +13,7 @@ const CurrentLocation = ({
       <h1>{name}</h1>
       <p>{country}</p>
       <p>{localTime}</p>
+      <p>{localDate}</p>
       <p>{condition.text}</p>
       <img src={condition.iconUrl} />
       <p>{temperature}</p>

@@ -1,6 +1,6 @@
 const getNextDaysForecast = (data) =>
   data.forecast.forecastday.map((day) => ({
-    day: day.date,
+    day: day.date === data.location.localtime.slice(0, 10) ? "Today" : day.date,
     maxTemp: `${day.day.maxtemp_c} °C`,
     minTemp: `${day.day.mintemp_c} °C`,
     condition: day.day.condition.text,

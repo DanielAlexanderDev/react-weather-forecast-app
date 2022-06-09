@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getAutocompleteRequest } from "../api/getAutocompleteRequest";
 import { getWeatherRequest } from "../api/getWeather";
 import getCurrentForecast from "../helpers/getCurrentForecast";
 import getCurrentLocation from "../helpers/getCurrentLocation";
@@ -8,6 +9,8 @@ const useFetchWeather = () => {
   const [weatherInfo, setWeatherInfo] = useState(null);
   const [isLoading, setisLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [searchedValue, setSearchedValue] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
 
   const forecastInformationReady = (data) => {
     const currentDayForecast = getCurrentForecast(data);
@@ -18,12 +21,31 @@ const useFetchWeather = () => {
     setisLoading(false);
   };
 
+  const changeSearch = async (value) => {
+    if (!value || value === "") {
+      setSuggestions([]);
+      return;
+    }
+    setSearchedValue(value);
+
+    const data = await getAutocompleteRequest(value);
+    if (searchedValue === value) {
+      setSuggestions(data);
+      return;
+    }
+    setSuggestions(data);
+
+    console.log(value);
+    console.log(data);
+  };
   const submitRequest = async (location) => {
     setisLoading(true);
     setIsError(false);
+    setSuggestions([]);
     try {
       const data = await getWeatherRequest(location);
       forecastInformationReady(data);
+      console.log(data);
     } catch (error) {
       setIsError(error.response.statusText);
       setisLoading(false);
@@ -35,6 +57,8 @@ const useFetchWeather = () => {
     isError,
     weatherInfo,
     submitRequest,
+    changeSearch,
+    suggestions,
   };
 };
 export default useFetchWeather;

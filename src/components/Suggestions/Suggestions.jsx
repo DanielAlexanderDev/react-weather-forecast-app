@@ -1,15 +1,16 @@
 import React from "react";
-import SuggestionItem from "../SuggestionItem/SuggestionItem";
+import { SuggestionContainer, SuggestionText } from ".";
+
 const Suggestions = ({ data, onSearch }) => {
   return (
-    <div>
+    <SuggestionContainer>
       {data.map((item) => (
-        <p
+        <SuggestionText
           onClick={() => onSearch(item.name)}
           key={item.id}
-        >{`${item.name}, ${item.country}`}</p>
+        >{`${item.name}, ${item.country}`}</SuggestionText>
       ))}
-    </div>
+    </SuggestionContainer>
   );
 };
 

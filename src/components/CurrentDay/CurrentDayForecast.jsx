@@ -1,15 +1,16 @@
 import React from "react";
+import { Name, SectionContainer, Description } from "./styles";
 
 const CurrentDayForecast = ({ forecast }) => {
   return (
-    <div>
+    <SectionContainer>
       {forecast.map((item) => (
-        <div key={item.name}>
-          <h3>{item.name}</h3>
-          <p>{`${item.value} ${item.unit}`}</p>
-        </div>
+        <>
+          <Name>{item.name}</Name>
+          <Description>{`${item.value} ${item.unit}`}</Description>
+        </>
       ))}
-    </div>
+    </SectionContainer>
   );
 };
 

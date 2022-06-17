@@ -1,5 +1,6 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import { debounce } from "lodash";
+import { FormContainer, Input, Button } from "./styles";
 
 const Form = ({ submitSearch, changeSearch }) => {
   const [location, setLocation] = useState("");
@@ -14,11 +15,12 @@ const Form = ({ submitSearch, changeSearch }) => {
     setLocation(e.target.value);
     changeSearch(e.target.value);
   };
-  const debouncedHandleSearch = debounce(handleOnChange, 500);
+
+  const debouncedHandleSearch = debounce(handleOnChange, 300);
 
   return (
-    <form onSubmit={onSubmit}>
-      <input
+    <FormContainer onSubmit={onSubmit}>
+      <Input
         type="text"
         aria-label="location"
         placeholder="Search for location"
@@ -26,10 +28,10 @@ const Form = ({ submitSearch, changeSearch }) => {
         accessKey={"q"}
         required
       />
-      <button type="submit" onClick={onSubmit}>
+      <Button type="submit" onClick={onSubmit}>
         Search
-      </button>
-    </form>
+      </Button>
+    </FormContainer>
   );
 };
 

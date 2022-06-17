@@ -17,6 +17,10 @@ const Main = () => {
   const onSubmit = (value) => {
     submitRequest(value);
   };
+
+  //TODO : Use input ref to enable or not suggestions.
+  //TODO : Finish Styles, add react icons.
+
   return (
     <>
       <Header />

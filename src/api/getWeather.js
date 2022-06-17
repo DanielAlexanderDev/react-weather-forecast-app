@@ -7,7 +7,7 @@ const options = (param) => {
     params: { q: param, days: "3" },
     headers: {
       "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
-      "X-RapidAPI-Key": "8b43d4ddf9mshc1ecb5d0bcc050ap1b5a86jsnea7ef7e1e4ad",
+      "X-RapidAPI-Key": import.meta.env.VITE_RAPIDAPI_KEY,
     },
   };
 };

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getAutocompleteRequest } from "../api/getAutocompleteRequest";
 import { getWeatherRequest } from "../api/getWeather";
 import getCurrentForecast from "../helpers/getCurrentForecast";

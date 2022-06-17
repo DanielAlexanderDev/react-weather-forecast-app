@@ -1,4 +1,5 @@
 import React from "react";
+import { Title, Container } from "./styles";
 
 const CurrentLocation = ({
   name,
@@ -9,15 +10,15 @@ const CurrentLocation = ({
   temperature,
 }) => {
   return (
-    <div>
-      <h1>{name}</h1>
+    <Container>
+      <Title>{name}</Title>
       <p>{country}</p>
       <p>{localTime}</p>
       <p>{localDate}</p>
       <p>{condition.text}</p>
       <img src={condition.iconUrl} />
-      <p>{temperature}</p>
-    </div>
+      <p>{temperature}°C</p>
+    </Container>
   );
 };
 

@@ -1,10 +1,11 @@
 import React from "react";
+import { DaysContainer, DayCard } from "./styles";
 
 const NextDaysForecast = ({ forecast }) => {
   return (
-    <div>
+    <DaysContainer>
       {forecast.map((item) => (
-        <div key={item.day}>
+        <DayCard key={item.day}>
           <h2>{item.day}</h2>
           <p>{item.maxTemp}</p>
           <p>{item.minTemp}</p>
@@ -12,9 +13,9 @@ const NextDaysForecast = ({ forecast }) => {
           <p>{item.avgHumidity}</p>
           <p>{item.sunrise}</p>
           <p>{item.sunset}</p>
-        </div>
+        </DayCard>
       ))}
-    </div>
+    </DaysContainer>
   );
 };
 

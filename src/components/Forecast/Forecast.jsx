@@ -2,14 +2,17 @@ import React from "react";
 import CurrentLocation from "../CurrentLocation/CurrentLocation";
 import CurrentDayForecast from "../CurrentDay/CurrentDayForecast";
 import NextDaysForecast from "../NextDaysForecast/NextDaysForecast";
+import { ForecastContainer, SemiContainer } from "./styles";
 
 const Forecast = ({ forecast }) => {
   return (
-    <div>
-      <CurrentLocation {...forecast.currentLocation} />
-      <CurrentDayForecast forecast={forecast.currentDayForecast} />
+    <ForecastContainer>
+      <SemiContainer>
+        <CurrentLocation {...forecast.currentLocation} />
+        <CurrentDayForecast forecast={forecast.currentDayForecast} />
+      </SemiContainer>
       <NextDaysForecast forecast={forecast.nextDaysForecast} />
-    </div>
+    </ForecastContainer>
   );
 };
 

@@ -1,11 +1,12 @@
 import React from "react";
+import { MainTitle } from "./styles";
 
 const Header = () => {
   return (
     <>
-      <h1>
+      <MainTitle>
         <span>Weather</span>Forecast
-      </h1>
+      </MainTitle>
     </>
   );
 };

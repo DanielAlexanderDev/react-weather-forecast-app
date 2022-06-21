@@ -4,6 +4,7 @@ import Form from "../components/Form/Form";
 import useFetchWeather from "../hooks/useFetchWeather";
 import Forecast from "../components/Forecast/Forecast";
 import Suggestions from "../components/Suggestions/Suggestions";
+import ForecastLoader from "../components/ForecastLoader/ForecastLoader";
 
 const Main = () => {
   const {
@@ -14,6 +15,7 @@ const Main = () => {
     submitRequest,
     changeSearch,
   } = useFetchWeather();
+
   const onSubmit = (value) => {
     submitRequest(value);
   };
@@ -26,9 +28,10 @@ const Main = () => {
       <Header />
       <Form submitSearch={onSubmit} changeSearch={changeSearch} />
       {suggestions && <Suggestions data={suggestions} onSearch={onSubmit} />}
-      {isLoading && <p>Cargando...</p>}
+      {(!weatherInfo || isLoading) && <ForecastLoader />}
+      {/* {isLoading && <ForecastLoader />} */}
       {isError && <p>{isError}</p>}
-      {weatherInfo && <Forecast forecast={weatherInfo} />}
+      {weatherInfo && !isLoading && <Forecast forecast={weatherInfo} />}
     </>
   );
 };

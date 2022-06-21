@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const FormContainer = styled.form`
   position: relative;
   margin-top: 30px;
+  margin-bottom: 100px;
 `;
 
 export const Input = styled.input`

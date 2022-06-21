@@ -16,8 +16,8 @@ const CurrentLocation = ({
       <p>{localTime}</p>
       <p>{localDate}</p>
       <p>{condition.text}</p>
-      <img src={condition.iconUrl} />
       <p>{temperature}°C</p>
+      <img src={condition.iconUrl} />
     </Container>
   );
 };

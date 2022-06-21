@@ -4,13 +4,11 @@ import { FormContainer, Input, Button } from "./styles";
 
 const Form = ({ submitSearch, changeSearch }) => {
   const [location, setLocation] = useState("");
-
   const onSubmit = (e) => {
     e.preventDefault();
     if (!location || location === "") return;
     submitSearch(location);
   };
-
   const handleOnChange = (e) => {
     setLocation(e.target.value);
     changeSearch(e.target.value);

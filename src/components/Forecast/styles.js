@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 export const ForecastContainer = styled.div`
-  background-color: #fadad1;
   width: 90%;
-  padding: 20px;
   max-width: 900px;
   min-width: 320px;
   height: auto;
@@ -12,11 +10,16 @@ export const ForecastContainer = styled.div`
   -webkit-box-shadow: 3px 4px 5px 3px rgba(0, 0, 0, 0.62);
   -moz-box-shadow: 3px 4px 5px 3px rgba(0, 0, 0, 0.62);
   margin: 0 auto;
-  margin-top: 100px;
   margin-bottom: 50px;
 `;
 
 export const SemiContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
+  width: 100%;
+  background-image: url("assets/3375.jpg");
+  object-fit: contain;
+  background-size: cover;
+  color: white;
 `;

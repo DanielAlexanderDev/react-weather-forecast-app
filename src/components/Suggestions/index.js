@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SuggestionContainer = styled.div`
-  margin: 0 auto;
+  margin: -100px auto;
   position: absolute;
   left: calc(50% - 170px);
   display: flex;

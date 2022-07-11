@@ -7,4 +7,5 @@ export default defineConfig({
   server: {
     host: false,
   },
+  base: "react-weather-forecast-app",
 });

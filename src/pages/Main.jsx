@@ -3,8 +3,6 @@ import Header from "../components/Header/Header";
 import Form from "../components/Form/Form";
 import useFetchWeather from "../hooks/useFetchWeather";
 import Forecast from "../components/Forecast/Forecast";
-import Suggestions from "../components/Suggestions/Suggestions";
-import ForecastLoader from "../components/ForecastLoader/ForecastLoader";
 
 const Main = () => {
   const {
@@ -20,18 +18,24 @@ const Main = () => {
     submitRequest(value);
   };
 
-  //TODO : Use input ref to enable or not suggestions.
-  //TODO : Finish Styles, add react icons.
-
   return (
     <>
       <Header />
-      <Form submitSearch={onSubmit} changeSearch={changeSearch} />
-      {suggestions && <Suggestions data={suggestions} onSearch={onSubmit} />}
-      {(!weatherInfo || isLoading) && <ForecastLoader />}
-      {/* {isLoading && <ForecastLoader />} */}
-      {isError && <p>{isError}</p>}
-      {weatherInfo && !isLoading && <Forecast forecast={weatherInfo} />}
+      <main>
+        <Form
+          submitSearch={onSubmit}
+          changeSearch={changeSearch}
+          suggestions={suggestions}
+        />
+        {isLoading && <h3 style={{ color: "white" }}>Cargando...</h3>}
+        {isError && <p>{isError}</p>}
+        {weatherInfo && !isLoading && <Forecast forecast={weatherInfo} />}
+      </main>
+      <footer>
+        <h4 style={{ color: "white", paddingBottom: "20px" }}>
+          Developed by Daniel Alexander
+        </h4>
+      </footer>
     </>
   );
 };

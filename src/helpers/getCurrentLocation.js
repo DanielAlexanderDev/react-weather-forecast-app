@@ -11,6 +11,7 @@ const getCurrentLocation = (data) => ({
       timeZone: "UTC",
     }
   ),
+  isDay: data.current.is_day,
   condition: {
     text: data.current.condition.text,
     iconUrl: data.current.condition.icon,

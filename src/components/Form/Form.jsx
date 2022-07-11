@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import { debounce } from "lodash";
-import { FormContainer, Input, Button } from "./styles";
+import {
+  FormContainer,
+  Input,
+  Button,
+  Select,
+  InputContainer,
+  Option,
+} from "./styles";
 
-const Form = ({ submitSearch, changeSearch }) => {
+const Form = ({ submitSearch, changeSearch, suggestions }) => {
   const [location, setLocation] = useState("");
   const onSubmit = (e) => {
     e.preventDefault();
@@ -14,18 +21,30 @@ const Form = ({ submitSearch, changeSearch }) => {
     changeSearch(e.target.value);
   };
 
-  const debouncedHandleSearch = debounce(handleOnChange, 300);
+  const debouncedHandleSearch = debounce(handleOnChange, 200);
 
   return (
     <FormContainer onSubmit={onSubmit}>
-      <Input
-        type="text"
-        aria-label="location"
-        placeholder="Search for location"
-        onChange={debouncedHandleSearch}
-        accessKey={"q"}
-        required
-      />
+      <InputContainer>
+        <Input
+          autoComplete="off"
+          id="suggestions"
+          aria-label="location"
+          placeholder="Search for location"
+          onChange={debouncedHandleSearch}
+          accessKey={"q"}
+          required
+        />
+        {suggestions.length > 0 && (
+          <Select>
+            {suggestions.map((sugg) => (
+              <Option key={sugg.id} onClick={() => submitSearch(sugg.name)}>
+                {sugg.name}-{sugg.country}
+              </Option>
+            ))}
+          </Select>
+        )}
+      </InputContainer>
       <Button type="submit" onClick={onSubmit}>
         Search
       </Button>

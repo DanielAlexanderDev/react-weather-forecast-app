@@ -9,17 +9,32 @@ export const ForecastContainer = styled.div`
   box-shadow: 3px 4px 5px 3px rgba(0, 0, 0, 0.62);
   -webkit-box-shadow: 3px 4px 5px 3px rgba(0, 0, 0, 0.62);
   -moz-box-shadow: 3px 4px 5px 3px rgba(0, 0, 0, 0.62);
-  margin: 0 auto;
-  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
 `;
 
 export const SemiContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  align-items: center;
   width: 100%;
-  background-image: url("assets/3375.jpg");
+  min-width: 200px;
+  min-height: 380px;
+  max-height: auto;
+  background-image: url(${(props) => props.imgUrl});
+  background-repeat: no-repeat;
   object-fit: contain;
   background-size: cover;
   color: white;
+`;
+
+export const HeroImg = styled.img`
+  width: inherit;
+  min-width: 360px;
+  position: absolute;
+  z-index: -1;
+  height: inherit;
+  object-fit: cover;
 `;

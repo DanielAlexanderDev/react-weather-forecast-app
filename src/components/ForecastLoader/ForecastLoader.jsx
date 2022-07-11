@@ -1,6 +1,5 @@
 import ContentLoader from "react-content-loader";
 import React from "react";
-import { useEffect } from "react";
 import { useState } from "react";
 
 const ForecastLoader = (props) => {

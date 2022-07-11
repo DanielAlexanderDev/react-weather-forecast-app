@@ -3,7 +3,7 @@ import { SuggestionContainer, SuggestionText } from ".";
 
 const Suggestions = ({ data, onSearch }) => {
   return (
-    <SuggestionContainer>
+    <SuggestionContainer focused>
       {data.map((item) => (
         <SuggestionText
           onClick={() => onSearch(item.name)}

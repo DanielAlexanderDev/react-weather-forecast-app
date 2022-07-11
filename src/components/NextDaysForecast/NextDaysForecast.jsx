@@ -1,18 +1,33 @@
 import React from "react";
-import { DaysContainer, DayCard } from "./styles";
+import {
+  DaysContainer,
+  DayCard,
+  DayName,
+  Description,
+  DayNameContainer,
+} from "./styles";
 
 const NextDaysForecast = ({ forecast }) => {
   return (
     <DaysContainer>
+      <DayNameContainer>
+        <p></p>
+        <p>MaxTemp</p>
+        <p>MinTemp</p>
+        <p>Condition</p>
+        <p>Humidity</p>
+        <p>Sunrise Time</p>
+        <p>Sunset Time</p>
+      </DayNameContainer>
       {forecast.map((item) => (
         <DayCard key={item.day}>
-          <h2>{item.day}</h2>
-          <p>{item.maxTemp}</p>
-          <p>{item.minTemp}</p>
-          <p>{item.condition}</p>
-          <p>{item.avgHumidity}</p>
-          <p>{item.sunrise}</p>
-          <p>{item.sunset}</p>
+          <DayName>{item.day}</DayName>
+          <Description>{item.maxTemp}</Description>
+          <Description>{item.minTemp}</Description>
+          <Description>{item.condition}</Description>
+          <Description>{item.avgHumidity}</Description>
+          <Description>{item.sunrise}</Description>
+          <Description>{item.sunset}</Description>
         </DayCard>
       ))}
     </DaysContainer>

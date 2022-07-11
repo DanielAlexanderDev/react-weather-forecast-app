@@ -34,9 +34,6 @@ const useFetchWeather = () => {
       return;
     }
     setSuggestions(data);
-
-    console.log(value);
-    console.log(data);
   };
   const submitRequest = async (location) => {
     setisLoading(true);
@@ -45,7 +42,6 @@ const useFetchWeather = () => {
     try {
       const data = await getWeatherRequest(location);
       forecastInformationReady(data);
-      console.log(data);
     } catch (error) {
       setIsError(error.response.statusText);
       setisLoading(false);

@@ -1,4 +1,5 @@
 import React from "react";
+import { TiWeatherCloudy } from "react-icons/ti";
 import {
   DaysContainer,
   DayCard,
@@ -11,7 +12,9 @@ const NextDaysForecast = ({ forecast }) => {
   return (
     <DaysContainer>
       <DayNameContainer>
-        <p></p>
+        <p>
+          <TiWeatherCloudy />
+        </p>
         <p>MaxTemp</p>
         <p>MinTemp</p>
         <p>Condition</p>

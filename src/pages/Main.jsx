@@ -32,9 +32,9 @@ const Main = () => {
         {weatherInfo && !isLoading && <Forecast forecast={weatherInfo} />}
       </main>
       <footer>
-        <h4 style={{ color: "white", paddingBottom: "20px" }}>
-          Developed by Daniel Alexander
-        </h4>
+        <p style={{ color: "white", paddingBottom: "20px" }}>
+          Developed by <strong>Daniel Alexander</strong>{" "}
+        </p>
       </footer>
     </>
   );
